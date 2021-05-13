@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="context.item.similarmoviescontext" name="Similar Movies" version="0.0.1" provider-name="haribertlondon">
+  <requires>
+    <import addon="xbmc.python" version="2.24.0"/>
+    <import addon="script.module.requests"/>
+    <import addon="script.module.routing"/>
+  </requires>
+  <extension point="kodi.context.item" library="context.py">
+    <item>
+      <label>Hello World</label>
+      <visible>true</visible>
+    </item>
+  </extension>
+  <extension point="xbmc.python.pluginsource" library="addon.py"/>
+  <extension point="xbmc.python.module" library="resources/lib"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <language>de en</language>
+    <summary lang="en_GB">Context menu</summary>
+    <summary lang="de_DE">Kontext-Menü</summary>
+    <description lang="en_GB">...</description>
+    <description lang="de_DE">...</description>
+    <disclaimer lang="en_GB"></disclaimer>
+    <disclaimer lang="de_DE"></disclaimer>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+    <forum></forum>
+    <source></source>
+    <news>
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>
