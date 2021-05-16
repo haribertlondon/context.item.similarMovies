@@ -7,7 +7,7 @@
   </requires>
   <extension point="kodi.context.item" library="context.py">
     <item>
-      <label>Hello World</label>
+      <label>Similar Movies</label>
       <visible>true</visible>
     </item>
   </extension>

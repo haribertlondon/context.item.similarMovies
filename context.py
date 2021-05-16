@@ -16,15 +16,36 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import, division, print_function, unicode_literals
+import xbmc
+import xbmcgui
+import sys
 
-from kodi_six import xbmc
-from resources.lib.tidalsearch.common import Const
 
 #------------------------------------------------------------------------------
 # MAIN
 #------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+    
+    message = "Clicked on '{}'".format(sys.listitem.getLabel())
+    
+    id = sys.listitem.getUniqueID("imdb")
+    if len(id)==0:
+        id = "tmdb"+sys.listitem.getUniqueID("tmdb")
+    
+    message2 = "IMDB:{}".format(id)
+    xbmcgui.Dialog().notification("Hello context items!", message2 + message)
+    
+    
+    #cmd2 = 'ActivateWindow(10025,"plugin://plugin.video.smartfilter/",return)' #works
+    cmd2 = 'ActivateWindow(10025,"plugin://plugin.video.smartfilter/?action=listing&category=__SimilarTo__'+id+'",return)' #works
+    xbmc.executebuiltin(cmd2)
+    
+    #cmd= "plugin://plugin.video.smartfilter/?action=listing&category=__SimilarTo__"+id
+    #xbmc.executebuiltin('RunPlugin('+cmd+')')
+    
+    #xbmc.executebuiltin('RunPlugin()' )
+    #xbmc.executebuiltin("RunAddon("+cmd+", True)")
+    #xbmc.executebuiltin("ActivateWindow(10025,'"+cmd+"',return)")
+    
 
-    # Call Popup Menu in Addon
-    xbmc.executebuiltin('RunPlugin(plugin://%s/context_menu)' % Const.addon_id)

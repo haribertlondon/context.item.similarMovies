@@ -16,10 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import absolute_import, division, print_function, unicode_literals
-
+import sys
 #------------------------------------------------------------------------------
 # MAIN Program of the Plugin
 #------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-    pass
+    #pass
+    message = "Clicked on '{}'".format(sys.listitem.getLabel())
+    xbmcgui.Dialog().notification("Hello context items!", message)
