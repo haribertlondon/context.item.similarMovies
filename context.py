@@ -27,15 +27,20 @@ import sys
 
 if __name__ == '__main__':
     
-    message = "Clicked on '{}'".format(sys.listitem.getLabel())
+    #message = "Clicked on '{}'".format(sys.listitem.getLabel())
     
-    id = sys.listitem.getUniqueID("imdb")
-    if len(id)==0:
-        id = "tmdb"+sys.listitem.getUniqueID("tmdb")
     
-    message2 = "IMDB:{}".format(id)
-    xbmcgui.Dialog().notification("Hello context items!", message2 + message)
+    xbmc.log("CONTEXT TMDB = " + str(sys.listitem.getUniqueID("tmdb")), level = xbmc.LOGWARNING)
+    xbmc.log("CONTEXT IMDB = " + str(sys.listitem.getUniqueID("imdb")), level = xbmc.LOGWARNING)
     
+    ids = ["tmdb" + sys.listitem.getUniqueID("tmdb"), "imdb" + sys.listitem.getUniqueID("imdb")]
+    ids = [x for x in ids if len(x)>4]
+    id = '_'.join(ids)
+    
+    
+    #message2 = "IMDB:{}".format(id)
+    #xbmcgui.Dialog().notification("Hello context items!", message2 + message)
+    xbmc.log("Context menu - List item ids = " + str(id), level = xbmc.LOGWARNING)
     
     #cmd2 = 'ActivateWindow(10025,"plugin://plugin.video.smartfilter/",return)' #works
     cmd2 = 'ActivateWindow(10025,"plugin://plugin.video.smartfilter/?action=listing&category=__SimilarTo__'+id+'",return)' #works
