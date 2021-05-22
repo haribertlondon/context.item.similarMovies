@@ -32,8 +32,10 @@ if __name__ == '__main__':
     
     xbmc.log("CONTEXT TMDB = " + str(sys.listitem.getUniqueID("tmdb")), level = xbmc.LOGWARNING)
     xbmc.log("CONTEXT IMDB = " + str(sys.listitem.getUniqueID("imdb")), level = xbmc.LOGWARNING)
+    xbmc.log("CONTEXT TVDB = " + str(sys.listitem.getUniqueID("tvdb")), level = xbmc.LOGWARNING)
     
-    ids = ["tmdb" + sys.listitem.getUniqueID("tmdb"), "imdb" + sys.listitem.getUniqueID("imdb")]
+    ids = ["tmdb" + sys.listitem.getUniqueID("tmdb"), "imdb" + sys.listitem.getUniqueID("imdb"), "tvdb" + sys.listitem.getUniqueID("tvdb"), "mediatype"+sys.listitem.getVideoInfoTag().getMediaType()]
+    
     ids = [x for x in ids if len(x)>4]
     id = '_'.join(ids)
     
